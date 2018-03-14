@@ -13,6 +13,12 @@ class CheckboxField extends ChoiceField {
 	 */
 	public function render_input( $input_atts, $is_quickedit = true ) {
 		$output = '';
+
+		$output .= sprintf( '<input %s />', acf_esc_attr( array(
+			'type'					=> 'hidden',
+			'name'					=> $input_atts['name'],
+		) ) );
+
 		$output .= sprintf( '<ul class="acf-checkbox-list" data-acf-field-key="%s">', $this->acf_field['key'] );
 
 		$input_atts		+= array(
@@ -38,7 +44,7 @@ class CheckboxField extends ChoiceField {
 			if ( in_array( $value, $this->acf_field['value'] ) ) {
 				$atts['checked'] = 'checked';
 			}
-			$output .= sprintf( '<li><label><input %s/>%s</label></li>', acf_esc_attr( $atts ), $label );
+			$output .= sprintf( '<li><label><input %s/>%s</label></li>', acf_esc_attr( $atts ), acf_esc_html( $label ) );
 		}
 
 		$output .= '</ul>';

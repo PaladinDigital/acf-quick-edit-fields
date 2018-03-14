@@ -67,6 +67,10 @@
 .acf-qef-value-list {
 	margin-top:0;
 	margin-bottom:0;
+	&[data-count-values="1"] {
+		list-style-type:none;
+		margin-left:0;
+	}
 }
 
 
@@ -216,6 +220,7 @@
 				float:left;
 				box-sizing:border-box;
 				border:1px solid #ddd;
+				clear:none;
 				&:nth-of-type(3n+1) {
 					clear:left;
 				}
